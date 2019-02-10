@@ -3,7 +3,7 @@ require 'trigram'
 require 'amatch'
 require 'pry'
 
-class StringSimilarityAlgorithms
+class Pool
   attr_reader :word_a, :word_b
 
   def initialize(word_a, word_b)
@@ -11,7 +11,7 @@ class StringSimilarityAlgorithms
     @word_b = word_b
   end
 
-  def compare
+  def calculate
     {
       cosine: compare_with_cosine,
       levenshtein: compare_with_levenshtein,
