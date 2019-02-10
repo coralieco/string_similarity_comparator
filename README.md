@@ -7,10 +7,10 @@ This can help compare results from different algorithms and better choose the mo
 
 - [Cosine](https://en.wikipedia.org/wiki/Cosine_similarity)
 - [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
-- [Levenshtein]
+- Levenshtein
 - [Trigram](https://en.wikipedia.org/wiki/Trigram)
 - [Jaro Winkler](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
-- [Jaro]
+- Jaro
 - [Hamming](https://en.wikipedia.org/wiki/Hamming_code)
 
 ## Usage
@@ -18,7 +18,7 @@ This can help compare results from different algorithms and better choose the mo
 To compare two words, call
 
 ```
-StringSimilarityAlgorithms.new('foo', 'bar').compare
+StringSimilarityComparator::Pool.new('foo', 'bar').calculate
 ```
 
 it returns
