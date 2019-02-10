@@ -9,4 +9,5 @@ gem 'trigram', require: true
 # Jaro-Winkler algorithm
 gem 'amatch', require: true
 
+gem 'rspec'
 gem 'pry', require: true
