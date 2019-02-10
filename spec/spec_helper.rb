@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'string_similarity_algorithms'
+require 'string_similarity_comparator/pool'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

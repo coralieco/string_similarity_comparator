@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe StringSimilarityAlgorithms do
+RSpec.describe Pool do
   context 'with different words' do
     context 'with differences in each letter' do
       let(:word_a) { 'foo' }
@@ -17,7 +17,7 @@ RSpec.describe StringSimilarityAlgorithms do
         }
       }
 
-      subject { described_class.new(word_a, word_b).compare }
+      subject { described_class.new(word_a, word_b).calculate }
 
       it { is_expected.to include(expected_json) }
     end
@@ -38,7 +38,7 @@ RSpec.describe StringSimilarityAlgorithms do
       }
     }
 
-    subject { described_class.new(word_a, word_b).compare }
+    subject { described_class.new(word_a, word_b).calculate }
 
     it { is_expected.to include(expected_json) }
   end
