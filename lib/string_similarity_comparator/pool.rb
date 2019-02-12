@@ -1,7 +1,6 @@
 require 'string/similarity'
 require 'trigram'
 require 'amatch'
-require 'pry'
 
 module StringSimilarityComparator
   class Pool
