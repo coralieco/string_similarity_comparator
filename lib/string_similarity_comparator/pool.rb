@@ -1,7 +1,6 @@
 require 'string/similarity'
 require 'trigram'
 require 'amatch'
-require 'pry'
 
 module StringSimilarityComparator
   class Pool
@@ -14,48 +13,48 @@ module StringSimilarityComparator
 
     def calculate
       {
-        cosine: compare_with_cosine,
-        levenshtein: compare_with_levenshtein,
-        levenshtein_distance: compare_with_levenshtein_distance,
-        trigram: compare_with_trigram,
-        jaro_winkler: compare_with_jaro_winkler,
-        jaro: compare_with_jaro,
-        hamming: compare_with_hamming
+        cosine: cosine,
+        levenshtein: levenshtein,
+        levenshtein_distance: levenshtein_distance,
+        trigram: trigram,
+        jaro_winkler: jaro_winkler,
+        jaro: jaro,
+        hamming: hamming
       }
     end
 
     # https://en.wikipedia.org/wiki/Cosine_similarity
-    def compare_with_cosine
+    def cosine
       String::Similarity.cosine(word_a, word_b).round(3)
     end
 
     # https://en.wikipedia.org/wiki/Levenshtein_distance
-    def compare_with_levenshtein_distance
+    def levenshtein_distance
       String::Similarity.levenshtein_distance(word_a, word_b).round(3)
     end
 
-    def compare_with_levenshtein
+    def levenshtein
       String::Similarity.levenshtein(word_a, word_b).round(3)
     end
 
     # https://en.wikipedia.org/wiki/Trigram
-    def compare_with_trigram
+    def trigram
       Trigram.compare(word_a, word_b).round(3)
     end
 
     # https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance
-    def compare_with_jaro_winkler
+    def jaro_winkler
       m = Amatch::JaroWinkler.new(word_a)
       m.match(word_b).round(3)
     end
 
-    def compare_with_jaro
+    def jaro
       m = Amatch::Jaro.new(word_a)
       m.match(word_b).round(3)
     end
 
     # https://en.wikipedia.org/wiki/Hamming_code
-    def compare_with_hamming
+    def hamming
       m = Amatch::Hamming.new(word_a)
       m.match(word_b).round(3)
     end
