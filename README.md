@@ -13,31 +13,59 @@ This can help compare results from different algorithms and better choose the mo
 - Jaro
 - [Hamming](https://en.wikipedia.org/wiki/Hamming_code)
 
+## Installation
+
+First thing first, add this line in your Gemfile
+
+```ruby
+gem 'string_similarity_comparator'
+```
+
+Then, run
+
+```
+$ bundle
+```
+
+Or install it yourself as:
+
+```
+$ gem install 'string_similarity_comparator'
+```
+
 ## Usage
 
-To compare two words, call
+### Overview
+
+You can test it in console right away.
+
+```
+>> require 'string_similarity_comparator'
+true
+
+>> StringSimilarityComparator::Pool.new('foo', 'bar').calculate
+{
+                  :cosine => 0.0,
+             :levenshtein => 0.333,
+    :levenshtein_distance => 3,
+                 :trigram => 0.0,
+            :jaro_winkler => 0.0,
+                    :jaro => 0.0,
+                 :hamming => 3
+}
+```
+
+To compare two words, 'foo' and 'bar' for example, call
 
 ```
 StringSimilarityComparator::Pool.new('foo', 'bar').calculate
 ```
 
-it returns
-
-```
-{
-  cosine: 0.0,
-  jaro: 0.0,
-  jaro_winkler: 0.0,
-  levenshtein: 0.333,
-  levenshtein_distance: 3,
-  trigram: 0.0,
-  hamming: 3
-}
-```
-
 ## Article
 
 I wrote an article about what we do at Appaloosa Store to customize application recommendation using String Similarity Algorithms: [String Similarity Algorithms Compared](https://medium.com/@appaloosastore/string-similarity-algorithms-compared-3f7b4d12f0ff)
+
+It compares some of these algorithms and explain why I chose to use the Jaro-Winkler algorithm in Appaloosa use-case.
 
 ## License
 
