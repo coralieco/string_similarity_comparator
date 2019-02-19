@@ -1,7 +1,3 @@
-require 'string/similarity'
-require 'trigram'
-require 'amatch'
-
 module StringSimilarityComparator
   class Pool
     attr_reader :word_a, :word_b
