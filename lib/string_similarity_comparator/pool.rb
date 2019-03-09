@@ -1,3 +1,7 @@
+require 'string-similarity'
+require 'trigram'
+require 'amatch'
+
 module StringSimilarityComparator
   class Pool
     attr_reader :word_a, :word_b
@@ -16,7 +20,7 @@ module StringSimilarityComparator
         jaro_winkler: jaro_winkler,
         jaro: jaro,
         hamming: hamming
-      }
+      }.to_json
     end
 
     # https://en.wikipedia.org/wiki/Cosine_similarity
