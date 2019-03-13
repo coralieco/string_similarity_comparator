@@ -5,6 +5,10 @@ module StringSimilarityComparator
   class App < Sinatra::Base
     set :views, (proc { File.join(root, "views") })
 
+    before do
+      content_type 'application/json'
+    end
+
     get '/' do
       erb :welcome
     end
