@@ -1,13 +1,12 @@
 require 'sinatra'
+require "sinatra/namespace"
 require_relative '../string_similarity_comparator/pool'
 
 module StringSimilarityComparator
   class App < Sinatra::Base
-    set :views, (proc { File.join(root, "views") })
+    register Sinatra::Namespace
 
-    before do
-      content_type 'application/json'
-    end
+    set :views, (proc { File.join(root, "views") })
 
     get '/' do
       erb :welcome
@@ -17,18 +16,25 @@ module StringSimilarityComparator
       erb :"404"
     end
 
-    get '/string_similarity' do
-      string_a = params['string_a']
-      string_b = params['string_b']
+    namespace '/api/v1' do
 
-      if string_a && string_b
-        @ssc = StringSimilarityComparator::Pool.new(string_a, string_b).calculate
-      else
-        404
-        redirect to('/')
+      before do
+        content_type 'application/json'
       end
 
-      erb :string_similarity
+      get '/string_similarity' do
+        string_a = params['string_a']
+        string_b = params['string_b']
+
+        if string_a && string_b
+          @ssc = StringSimilarityComparator::Pool.new(string_a, string_b).calculate
+        else
+          404
+          redirect to('/')
+        end
+
+        erb :string_similarity
+      end
     end
   end
 end
