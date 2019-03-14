@@ -1,6 +1,8 @@
 require 'string-similarity'
 require 'trigram'
+require 'jaro_winkler'
 require 'amatch'
+require 'pry'
 
 module StringSimilarityComparator
   class Pool
@@ -44,13 +46,11 @@ module StringSimilarityComparator
 
     # https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance
     def jaro_winkler
-      m = Amatch::JaroWinkler.new(word_a)
-      m.match(word_b).round(3)
+      JaroWinkler.distance(word_a, word_b).round(3)
     end
 
     def jaro
-      m = Amatch::Jaro.new(word_a)
-      m.match(word_b).round(3)
+      JaroWinkler.jaro_distance(word_a, word_b).round(3)
     end
 
     # https://en.wikipedia.org/wiki/Hamming_code
