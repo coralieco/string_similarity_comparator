@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'sinatra', '~> 2.0'
   spec.add_development_dependency 'sinatra-contrib'
+  spec.add_development_dependency 'sinatra-flash'
 end

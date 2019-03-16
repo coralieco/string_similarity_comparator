@@ -1,19 +1,26 @@
 <h2>String Similarity Algorithms Comparator</h2>
 
-<p><strong>Description</strong></p>
+<strong>Description</strong>
 <p>Return a json aggregating different algorithms to compare strings.</p>
-<p>This can help compare results from different algorithms and better choose the most appropriate depending of the objective.
-</p>
-<ul>
-  <li>Cosine</li>
-  <li>Levenshtein</li>
-  <li>Levenshtein distance</li>
-  <li>Trigram</li>
-  <li>Jaro Winkler</li>
-  <li>Jaro</li>
-  <li>Hamming</li>
-</ul>
+<p>This can help compare results from different algorithms and better choose the most appropriate depending of the objective.</p>
+
+<strong>Try!</strong>
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius" style="color: #f44336;">
+    <%= flash[type] %>
+  </div>
+<% end %>
+
+<form action="/api/v1/string_similarity" method="GET">
+  <label for="name">String A</label>
+  <input type="text" name="string_a" id="string_a" value="<%= params[:string_a] %>"/>
+
+  <label for="name">String B</label>
+  <input type="text" name="string_b" id="string_b" value="<%= params[:string_b] %>"/>
+
+  <input type="submit" value="Compare"/>
+</form>
 
 <p><strong>Guidelines</strong></p>
-<p> You should provide strings in params</p>
+<p> You can use the forme above or provide strings in params</p>
 <p> Such as: "GET /string_similarity?string_a=foo&string_b=bar"</p>
