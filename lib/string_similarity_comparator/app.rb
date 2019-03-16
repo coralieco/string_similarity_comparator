@@ -38,7 +38,7 @@ module StringSimilarityComparator
           flash[:warning] = "Strings can not be blank!"
           redirect to('/')
         else
-          @ssc = StringSimilarityComparator::Pool.new(string_a, string_b).calculate
+          @ssc = StringSimilarityComparator::Pool.new(string_a, string_b).calculate.to_json
         end
 
         erb :string_similarity

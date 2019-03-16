@@ -22,7 +22,7 @@ module StringSimilarityComparator
         jaro_winkler: jaro_winkler,
         jaro: jaro,
         hamming: hamming
-      }.to_json
+      }
     end
 
     # https://en.wikipedia.org/wiki/Cosine_similarity
