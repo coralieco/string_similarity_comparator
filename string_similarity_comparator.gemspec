@@ -24,10 +24,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'amatch', '~> 0.4.0'
   spec.add_development_dependency 'trigram', '~> 0.0.1'
-  spec.add_development_dependency 'jaro_winkler'
+  spec.add_development_dependency 'jaro_winkler', '~>1.5.2'
   spec.add_development_dependency 'string-similarity', '~> 2.0'
-  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'sinatra', '~> 2.0'
-  spec.add_development_dependency 'sinatra-contrib'
-  spec.add_development_dependency 'sinatra-flash'
+  spec.add_development_dependency 'sinatra-contrib', '~> 2.0.5'
+  spec.add_development_dependency 'sinatra-flash', '~>0.3.0'
 end
