@@ -15,7 +15,7 @@ This can help compare results from different algorithms and better choose the mo
 
 ## Installation
 
-First thing first, add this line in your Gemfile
+First thing first, add this line to your Gemfile
 
 ```ruby
 gem 'string_similarity_comparator'
@@ -35,14 +35,16 @@ $ gem install 'string_similarity_comparator'
 
 ## Usage
 
-### Overview
+### 1. Overview as gem
 
 You can test it in console right away.
 
 ```
 >> require 'string_similarity_comparator'
 true
+```
 
+```
 >> StringSimilarityComparator::Pool.new('foo', 'bar').calculate
 {
                   :cosine => 0.0,
@@ -58,8 +60,31 @@ true
 To compare two words, 'foo' and 'bar' for example, call
 
 ```
-StringSimilarityComparator::Pool.new('foo', 'bar').calculate
+>> StringSimilarityComparator::Pool.new('foo', 'bar').calculate
 ```
+
+### 2. Overview as sinatra API
+
+```
+$ git clone git@github.com:coralieco/string_similarity_comparator.git
+```
+
+Then
+
+```
+$ cd string_similarity_comparator
+$ bundle
+$ ruby lib/string_similarity_comparator/app.rb
+```
+
+Go on the browser, usually on `localhost:4567`
+
+Then use one of the endpoint:
+
+1. with the form: <http://localhost:4567/>
+
+2. with the url directly: <http://localhost:4567/api/v1/string_similarity?string_a=foo&string_b=bar>
+
 
 ## Article
 
@@ -69,11 +94,13 @@ It compares some of these algorithms and explain why I chose to use the Jaro-Win
 
 ## License
 
-Using repositories of:
+Using gem work of:
+See the LICENSE file in the source.
 
-- [amatch](https://github.com/flori/amatch/blob/master/README.md)
-Apache License, Version 2.0 – See the COPYING file in the source archive.
+[JaroWinkler](https://github.com/tonytonyjan/jaro_winkler/blob/master/README.md): Copyright (c) 2014 Jian Weihang
 
-- [string-similarity](https://github.com/mhutter/string-similarity)
+[amatch](https://github.com/flori/amatch/blob/master/README.md): Copyright [2017] [Florian Frank]
 
-- [Trigram](https://github.com/milk1000cc/trigram)
+[string-similarity](https://github.com/mhutter/string-similarity): Copyright (c) 2015 Manuel Hutter
+
+[Trigram](https://github.com/milk1000cc/trigram): Copyright (c) 2014 milk1000cc

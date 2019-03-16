@@ -2,7 +2,6 @@ require 'string-similarity'
 require 'trigram'
 require 'jaro_winkler'
 require 'amatch'
-require 'pry'
 
 module StringSimilarityComparator
   class Pool
