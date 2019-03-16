@@ -19,14 +19,15 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'amatch', '~> 0.4.0'
+  spec.add_dependency 'trigram', '~> 0.0.1'
+  spec.add_dependency 'jaro_winkler', '~> 1.5.2'
+  spec.add_dependency 'string-similarity', '~> 2.0'
+  spec.add_dependency 'sinatra', '~> 2.0'
+  spec.add_dependency 'sinatra-contrib', '~> 2.0.5'
+  spec.add_dependency 'sinatra-flash', '~>0.3.0'
+
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'amatch', '~> 0.4.0'
-  spec.add_development_dependency 'trigram', '~> 0.0.1'
-  spec.add_development_dependency 'jaro_winkler', '~>1.5.2'
-  spec.add_development_dependency 'string-similarity', '~> 2.0'
-  spec.add_development_dependency 'sinatra', '~> 2.0'
-  spec.add_development_dependency 'sinatra-contrib', '~> 2.0.5'
-  spec.add_development_dependency 'sinatra-flash', '~>0.3.0'
 end

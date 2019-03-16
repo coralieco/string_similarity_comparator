@@ -1,5 +1,5 @@
-require 'string-similarity'
 require 'trigram'
+require 'string-similarity'
 require 'jaro_winkler'
 require 'amatch'
 
